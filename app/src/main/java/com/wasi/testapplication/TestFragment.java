@@ -25,8 +25,15 @@ public class TestFragment extends Fragment {
     TextView textview_count;
     @InjectView(R.id.edittext_value)
     EditText editText_value;
-    @InjectView(R.id.button_increment)
-    Button button_increment;
+    @InjectView(R.id.textview_pager_index)
+    TextView textview_pager_index;
+
+    int positionInPager;
+    public static TestFragment createInstance(int positionInPager){
+        TestFragment f = new TestFragment();
+        f.positionInPager = positionInPager;
+        return f;
+    }
 
     public TestFragment() {
     }
@@ -58,7 +65,7 @@ public class TestFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_test, container, false);
         ButterKnife.inject(this, v);
-        ButterKnife.setDebug(true);
+        textview_pager_index.setText("Fragment #"+this.positionInPager);
         return v;
      }
 

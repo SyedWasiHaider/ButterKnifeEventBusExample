@@ -10,7 +10,7 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
         super(fm);
         fragments = new Fragment[3];
         for (int i = 0; i < fragments.length; i++){
-            fragments[i] = new TestFragment();
+            fragments[i] = TestFragment.createInstance(i);
         }
 
     }
